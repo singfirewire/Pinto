@@ -1,6 +1,19 @@
-/* style.css */
+/*  ปรับแต่ง CSS ให้สวยงามตามต้องการ  เช่น */
 body {
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column; /*  เปลี่ยนเป็น column */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -8,7 +21,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center; /*  จัดกึ่งกลางแนวตั้ง */
   margin-top: 20px;
+  gap: 10px; /*  เพิ่มระยะห่าง */
 }
 
 .word {
@@ -16,14 +31,33 @@ body {
   padding: 10px;
   border-radius: 5px;
   background-color: #f0f0f0;
-  font-size: 16px; /* ขนาดตัวอักษรเริ่มต้น */
+  font-size: 16px;
+  transition: font-size 0.3s ease;
 }
 
-/*  กำหนดขนาดตัวอักษรตามความนิยม */
-.word.popular { 
-  font-size: 24px;
-}
-
+/*  เรียงลำดับขนาด  (จากใหญ่ไปเล็ก) */
 .word.very-popular { 
   font-size: 36px;
+  order: 1; 
+}
+
+.word.popular { 
+  font-size: 24px;
+  order: 2;
+}
+
+.word { /*  ขนาดปกติ */
+  font-size: 16px;
+  order: 3;
+}
+
+/*  Responsive design */
+@media (max-width: 768px) {
+  /*  ปรับแต่ง CSS สำหรับมือถือ */
+}
+
+.footer {
+  margin-top: auto; /*  ดัน footer ไปด้านล่างสุด */
+  font-size: 12px; /*  ปรับขนาดตัวอักษร */
+  color: #888; /*  ปรับสี */
 }
