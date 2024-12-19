@@ -1,68 +1,60 @@
-// script.js
+/*  ปรับแต่ง CSS ให้สวยงามตามต้องการ  เช่น */
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
 
-const submitButton = document.getElementById('submit');
-const feelingInput = document.getElementById('feeling');
-const wordCloud = document.querySelector('.word-cloud');
-const categorySelect = document.getElementById('category');
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-//  เก็บข้อมูลความรู้สึก
-let feelings = {}; 
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-submitButton.addEventListener('click', () => {
-  const feeling = feelingInput.value.trim();
-  const category = categorySelect.value;
+.word {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  transition: font-size 0.3s ease; /* เพิ่ม transition */
+}
 
-  if (feeling !== "") {
-    //  เพิ่มความรู้สึกใน object  
-    if (feelings[feeling]) {
-      feelings[feeling]++; 
-    } else {
-      feelings[feeling] = 1;
-    }
+.word.popular { 
+  font-size: 24px;
+}
 
-    //  อัพเดท word cloud
-    updateWordCloud(category); 
+.word.very-popular { 
+  font-size: 36px;
+}
 
-    feelingInput.value = ""; 
+/*  Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
   }
-});
 
-function updateWordCloud(category) {
-  wordCloud.innerHTML = ""; 
-
-  for (const word in feelings) {
-    if (category === "all" || 
-        (category === "positive" && isPositiveWord(word)) ||
-        (category === "negative" && isNegativeWord(word)) ||
-        (category === "neutral" && isNeutralWord(word))) {
-      const wordElement = document.createElement('div');
-      wordElement.classList.add('word');
-      wordElement.textContent = word;
-
-      //  กำหนดขนาดตัวอักษรตามความนิยม
-      if (feelings[word] >= 10) {
-        wordElement.classList.add('very-popular');
-      } else if (feelings[word] >= 5) {
-        wordElement.classList.add('popular');
-      }
-
-      wordCloud.appendChild(wordElement);
-    }
+  .word {
+    font-size: 14px;
   }
-}
 
-//  ฟังก์ชันตรวจสอบประเภทของคำ (ตัวอย่าง)
-function isPositiveWord(word) {
-  const positiveWords = ["สนุก", "ดี", "ชอบ", "เข้าใจ"]; 
-  return positiveWords.includes(word);
-}
+  .word.popular { 
+    font-size: 18px;
+  }
 
-function isNegativeWord(word) {
-  const negativeWords = ["เบื่อ", "ง่วง", "ยาก"];
-  return negativeWords.includes(word);
-}
-
-function isNeutralWord(word) {
-  //  กำหนดเงื่อนไขสำหรับคำกลางๆ
-  return !isPositiveWord(word) && !isNegativeWord(word); 
+  .word.very-popular { 
+    font-size: 24px;
+  }
 }
