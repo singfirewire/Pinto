@@ -1,0 +1,29 @@
+/* style.css */
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.word {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-size: 16px; /* ขนาดตัวอักษรเริ่มต้น */
+}
+
+/*  กำหนดขนาดตัวอักษรตามความนิยม */
+.word.popular { 
+  font-size: 24px;
+}
+
+.word.very-popular { 
+  font-size: 36px;
+}
