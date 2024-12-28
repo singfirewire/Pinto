@@ -143,11 +143,18 @@ function showMenu() {
 // ฟังก์ชันติดตามการเคลื่อนไหวของเมาส์
 document.addEventListener('mousemove', showMenu);
 
-// เปิดลิงก์ Shopee Affiliate ในแท็บใหม่เมื่อหน้าเว็บโหลด
+// ฟังก์ชันเปิดลิงก์ Shopee Affiliate หลังจากหน่วงเวลา 20 วินาที
+function openShopeeAffiliate() {
+    setTimeout(() => {
+        window.open("https://s.shopee.co.th/9f4nrovoPz", "_blank");
+    }, 20000); // หน่วงเวลา 20 วินาที
+}
+
+// โหลดเวลาที่บันทึกไว้เมื่อหน้าเว็บโหลด
 window.onload = function() {
-    window.open("https://s.shopee.co.th/9f4nrovoPz", "_blank"); // เปิดลิงก์ Shopee Affiliate
-    loadSavedTime(); // โหลดเวลาที่บันทึกไว้
+    loadSavedTime();
     timeoutId = setTimeout(hideMenu, 3000); // ซ่อนเมนูหลังจาก 3 วินาที
+    openShopeeAffiliate(); // เปิดลิงก์ Shopee Affiliate หลังจากหน่วงเวลา 20 วินาที
 };
 
 // แสดง/ซ่อนฟิลด์ตามจำนวนวันที่เลือก
