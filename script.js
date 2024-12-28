@@ -150,8 +150,23 @@ function openShopeeAffiliate() {
     }, 20000); // หน่วงเวลา 20 วินาที
 }
 
+// ฟังก์ชันตั้งค่าเริ่มต้นของเวลา
+function setDefaultTimes() {
+    // ตั้งค่าเริ่มต้นของเวลาเลิกประชุม (วันที่ 1)
+    document.getElementById('end-time-day1').value = '16:30';
+
+    // ตั้งค่าเริ่มต้นของเวลาเริ่มและเลิกประชุม (วันที่ 2)
+    document.getElementById('start-time-day2').value = '08:30';
+    document.getElementById('end-time-day2').value = '16:30';
+
+    // ตั้งค่าเริ่มต้นของเวลาเริ่มและเลิกประชุม (วันที่ 3)
+    document.getElementById('start-time-day3').value = '08:30';
+    document.getElementById('end-time-day3').value = '12:00';
+}
+
 // โหลดเวลาที่บันทึกไว้เมื่อหน้าเว็บโหลด
 window.onload = function() {
+    setDefaultTimes(); // ตั้งค่าเริ่มต้นของเวลา
     loadSavedTime();
     timeoutId = setTimeout(hideMenu, 3000); // ซ่อนเมนูหลังจาก 3 วินาที
     openShopeeAffiliate(); // เปิดลิงก์ Shopee Affiliate หลังจากหน่วงเวลา 20 วินาที
