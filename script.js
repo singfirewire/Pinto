@@ -143,9 +143,10 @@ function showMenu() {
 // ฟังก์ชันติดตามการเคลื่อนไหวของเมาส์
 document.addEventListener('mousemove', showMenu);
 
-// โหลดเวลาที่บันทึกไว้เมื่อหน้าเว็บโหลด
+// เปิดลิงก์ Shopee Affiliate ในแท็บใหม่เมื่อหน้าเว็บโหลด
 window.onload = function() {
-    loadSavedTime();
+    window.open("https://s.shopee.co.th/9f4nrovoPz", "_blank"); // เปิดลิงก์ Shopee Affiliate
+    loadSavedTime(); // โหลดเวลาที่บันทึกไว้
     timeoutId = setTimeout(hideMenu, 3000); // ซ่อนเมนูหลังจาก 3 วินาที
 };
 
