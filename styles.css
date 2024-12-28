@@ -1,0 +1,100 @@
+/* พื้นหลังและฟอนต์ */
+body {
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1e1e1e;
+    color: #00ffcc;
+    transition: background-color 0.5s;
+}
+
+/* Container ของนาฬิกา */
+.countdown-container {
+    text-align: center;
+}
+
+/* นาฬิกาดิจิตอล */
+#countdown {
+    font-size: 15em; /* ขนาดปกติ */
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    margin: 0;
+    transition: font-size 0.5s; /* เพิ่มการเปลี่ยนขนาดอย่างนุ่มนวล */
+}
+
+/* ขนาดใหญ่ขึ้นเมื่อแสดงผล MM:SS */
+#countdown.large {
+    font-size: 20em; /* ขนาดใหญ่ขึ้น */
+}
+
+/* Container ของช่อง input และปุ่ม */
+.input-container {
+    position: fixed;
+    bottom: 60px; /* ปรับตำแหน่งให้สูงขึ้นเพื่อให้มีที่ว่างสำหรับ footer */
+    text-align: center;
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    transition: opacity 0.5s;
+}
+
+/* ช่อง input และ select */
+input[type="time"], select {
+    font-size: 1em;
+    padding: 5px;
+    margin: 5px;
+    background-color: #2e2e2e;
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    color: #00ffcc;
+    outline: none;
+}
+
+/* ปุ่ม */
+button {
+    font-size: 0.8em; /* ปุ่มขนาดเล็ก */
+    padding: 5px 10px;
+    background-color: #00ffcc;
+    border: none;
+    border-radius: 5px;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00cc99;
+}
+
+/* สีเมื่อหมดเวลา */
+body.time-up {
+    background-color: #ff0033;
+    animation: blink 1s infinite;
+}
+
+/* สีเมื่อเหลือ 5 นาทีสุดท้าย */
+body.alert {
+    background-color: #ff0033;
+}
+
+/* Animation กระพริบ */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 10px;
+    font-family: Arial, sans-serif; /* ใช้ฟอนต์ธรรมดา */
+    font-size: 0.8em;
+    color: #00ffcc;
+    opacity: 0.7;
+    transition: opacity 0.5s;
+}

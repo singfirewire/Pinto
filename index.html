@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <title>Feelings</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จับเวลาประชุม</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>บอกความรู้สึกของคุณ</h1>
-
-    <div class="input-area">
-      <input type="text" id="feeling" placeholder="พิมพ์ความรู้สึกของคุณ">
-      <button id="submit">ส่ง</button>
+    <div class="countdown-container">
+        <div id="countdown">00:00:00</div>
     </div>
-
-    <div class="word-cloud">
-      </div>
-
-  </div>
-
-  <div class="footer">
-    <p>Feelings v.1.0</p>
-  </div>
-
-  
-  <script src="script.js"></script>
+    <div class="input-container" id="input-container">
+        <label for="days">จำนวนวัน:</label>
+        <select id="days">
+            <option value="1">1 วัน</option>
+            <option value="2">2 วัน</option>
+            <option value="3">3 วัน</option>
+        </select>
+        <div id="day1">
+            <label for="end-time-day1">เวลาเลิกประชุม (วันที่ 1):</label>
+            <input type="time" id="end-time-day1" />
+        </div>
+        <div id="day2" style="display: none;">
+            <label for="start-time-day2">เวลาเริ่มประชุม (วันที่ 2):</label>
+            <input type="time" id="start-time-day2" />
+            <label for="end-time-day2">เวลาเลิกประชุม (วันที่ 2):</label>
+            <input type="time" id="end-time-day2" />
+        </div>
+        <div id="day3" style="display: none;">
+            <label for="start-time-day3">เวลาเริ่มประชุม (วันที่ 3):</label>
+            <input type="time" id="start-time-day3" />
+            <label for="end-time-day3">เวลาเลิกประชุม (วันที่ 3):</label>
+            <input type="time" id="end-time-day3" />
+        </div>
+        <button onclick="startCountdown()">เริ่ม</button>
+    </div>
+    <div class="footer" id="footer">
+        พัฒนาโดย 1o1
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
